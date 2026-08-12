@@ -1,1139 +1,1136 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Your Name | Creative Portfolio</title>
-
-    <style>
-
-        /* =========================
-           GLOBAL
-        ========================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #080808;
-            color: #ffffff;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            width: 100%;
-            display: block;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-
-        /* =========================
-           NAVBAR
-        ========================= */
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 22px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-
-            background: rgba(8, 8, 8, 0.75);
-            backdrop-filter: blur(15px);
-
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: -1px;
-        }
-
-        .logo span {
-            color: #ff4d00;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 35px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #aaa;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #fff;
-        }
-
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-
-            background:
-                radial-gradient(circle at 80% 30%, rgba(255,77,0,0.15), transparent 35%),
-                radial-gradient(circle at 20% 70%, rgba(255,255,255,0.04), transparent 30%);
-        }
-
-        .hero-content {
-            max-width: 850px;
-            padding-top: 70px;
-        }
-
-        .small-title {
-            color: #ff4d00;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-size: clamp(55px, 9vw, 120px);
-            line-height: 0.95;
-            letter-spacing: -6px;
-            margin-bottom: 30px;
-        }
-
-        .hero h1 span {
-            color: #ff4d00;
-        }
-
-        .hero-description {
-            max-width: 600px;
-            color: #999;
-            font-size: 18px;
-            margin-bottom: 35px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 14px 25px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .btn-primary {
-            background: #ff4d00;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255,77,0,0.3);
-        }
-
-        .btn-outline {
-            border: 1px solid #333;
-            color: #aaa;
-        }
-
-        .btn-outline:hover {
-            border-color: #fff;
-            color: #fff;
-        }
-
-        .scroll {
-            position: absolute;
-            bottom: 30px;
-            left: 5%;
-            color: #555;
-            font-size: 12px;
-            letter-spacing: 2px;
-        }
-
-
-        /* =========================
-           SECTION
-        ========================= */
-
-        section {
-            padding: 120px 0;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-            margin-bottom: 50px;
-        }
-
-        .section-number {
-            color: #ff4d00;
-            font-size: 13px;
-            margin-bottom: 10px;
-        }
-
-        .section-title {
-            font-size: 50px;
-            line-height: 1;
-            letter-spacing: -2px;
-        }
-
-        .section-description {
-            max-width: 400px;
-            color: #777;
-        }
-
-
-        /* =========================
-           ABOUT
-        ========================= */
-
-        .about {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .about-image {
-            height: 500px;
-            background: linear-gradient(135deg, #222, #111);
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .about-image img {
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .about-text h3 {
-            font-size: 35px;
-            margin-bottom: 20px;
-        }
-
-        .about-text p {
-            color: #888;
-            margin-bottom: 20px;
-        }
-
-        .about-details {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .detail {
-            border-top: 1px solid #222;
-            padding-top: 15px;
-        }
-
-        .detail span {
-            display: block;
-            color: #555;
-            font-size: 12px;
-            margin-bottom: 5px;
-        }
-
-
-        /* =========================
-           SKILLS
-        ========================= */
-
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-        }
-
-        .skill {
-            padding: 30px;
-            background: #111;
-            border: 1px solid #1d1d1d;
-            border-radius: 15px;
-            transition: 0.3s;
-        }
-
-        .skill:hover {
-            transform: translateY(-8px);
-            border-color: #ff4d00;
-        }
-
-        .skill-number {
-            color: #ff4d00;
-            font-size: 13px;
-        }
-
-        .skill h3 {
-            margin-top: 40px;
-            font-size: 20px;
-        }
-
-        .skill p {
-            margin-top: 10px;
-            color: #666;
-            font-size: 14px;
-        }
-
-
-        /* =========================
-           PROJECTS
-        ========================= */
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-
-        .project {
-            position: relative;
-            overflow: hidden;
-            border-radius: 18px;
-            background: #111;
-        }
-
-        .project-image {
-            height: 420px;
-            overflow: hidden;
-        }
-
-        .project-image img {
-            height: 100%;
-            object-fit: cover;
-            transition: 0.6s;
-        }
-
-        .project:hover img {
-            transform: scale(1.08);
-        }
-
-        .project-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-
-            padding: 30px;
-
-            background: linear-gradient(
-                transparent,
-                rgba(0,0,0,0.95)
-            );
-        }
-
-        .project-category {
-            color: #ff4d00;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .project-info h3 {
-            font-size: 28px;
-            margin-top: 5px;
-        }
-
-
-        /* =========================
-           STATS
-        ========================= */
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            border-top: 1px solid #222;
-            border-bottom: 1px solid #222;
-        }
-
-        .stat {
-            padding: 45px 20px;
-            text-align: center;
-            border-right: 1px solid #222;
-        }
-
-        .stat:last-child {
-            border-right: none;
-        }
-
-        .stat h2 {
-            font-size: 45px;
-            color: #fff;
-        }
-
-        .stat p {
-            color: #666;
-            font-size: 13px;
-        }
-
-
-        /* =========================
-           CONTACT
-        ========================= */
-
-        .contact {
-            text-align: center;
-            padding: 150px 0;
-            background:
-                radial-gradient(circle, rgba(255,77,0,0.12), transparent 50%);
-        }
-
-        .contact h2 {
-            font-size: clamp(50px, 8vw, 100px);
-            line-height: 0.9;
-            letter-spacing: -5px;
-            margin-bottom: 30px;
-        }
-
-        .contact h2 span {
-            color: #ff4d00;
-        }
-
-        .contact p {
-            color: #777;
-            max-width: 500px;
-            margin: auto auto 35px;
-        }
-
-        .email {
-            font-size: 18px;
-            color: #fff;
-            border-bottom: 1px solid #444;
-            padding-bottom: 5px;
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            padding: 30px 5%;
-            border-top: 1px solid #1d1d1d;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            color: #555;
-            font-size: 13px;
-        }
-
-        .socials {
-            display: flex;
-            gap: 20px;
-        }
-
-        .socials a {
-            transition: 0.3s;
-        }
-
-        .socials a:hover {
-            color: #ff4d00;
-        }
-
-
-        /* =========================
-           RESPONSIVE
-        ========================= */
-
-        @media (max-width: 900px) {
-
-            .nav-links {
-                gap: 15px;
-            }
-
-            .about {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .skills {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .projects {
-                grid-template-columns: 1fr;
-            }
-
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .stat:nth-child(2) {
-                border-right: none;
-            }
-
-            .stat {
-                border-bottom: 1px solid #222;
-            }
-        }
-
-
-        @media (max-width: 600px) {
-
-            nav {
-                padding: 18px 5%;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            section {
-                padding: 80px 0;
-            }
-
-            .hero h1 {
-                letter-spacing: -3px;
-            }
-
-            .section-title {
-                font-size: 40px;
-            }
-
-            .section-header {
-                display: block;
-            }
-
-            .section-description {
-                margin-top: 20px;
-            }
-
-            .skills {
-                grid-template-columns: 1fr;
-            }
-
-            .project-image {
-                height: 300px;
-            }
-
-            .stats {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .stat h2 {
-                font-size: 32px;
-            }
-
-            footer {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>YOUR NAME — Creative Portfolio</title>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080808;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+button,
+a {
+    font-family: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.page {
+    position: fixed;
+    inset: 0;
+    min-height: 100vh;
+
+    padding: 40px 6%;
+
+    background: #080808;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(1.08);
+    filter: blur(15px);
+
+    transition:
+        opacity .7s cubic-bezier(.77,0,.18,1),
+        transform 1s cubic-bezier(.77,0,.18,1),
+        filter .8s cubic-bezier(.77,0,.18,1);
+
+    overflow-y: auto;
+}
+
+.page.active {
+    opacity: 1;
+    visibility: visible;
+
+    transform: scale(1);
+    filter: blur(0);
+}
+
+
+/* =====================================================
+   PAGE TRANSITION
+===================================================== */
+
+.transition {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    pointer-events: none;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.transition-bar {
+    height: 25%;
+    width: 100%;
+
+    background: #ff4d00;
+
+    transform: translateX(-100%);
+}
+
+.transition.active .transition-bar:nth-child(1) {
+    animation: wipe .7s cubic-bezier(.77,0,.18,1) forwards;
+}
+
+.transition.active .transition-bar:nth-child(2) {
+    animation: wipe .7s .08s cubic-bezier(.77,0,.18,1) forwards;
+}
+
+.transition.active .transition-bar:nth-child(3) {
+    animation: wipe .7s .16s cubic-bezier(.77,0,.18,1) forwards;
+}
+
+.transition.active .transition-bar:nth-child(4) {
+    animation: wipe .7s .24s cubic-bezier(.77,0,.18,1) forwards;
+}
+
+@keyframes wipe {
+
+    0% {
+        transform: translateX(-100%);
+    }
+
+    50% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.nav {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 28px 6%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 100;
+
+    mix-blend-mode: difference;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: #ff4d00;
+}
+
+.menu {
+    display: flex;
+    gap: 35px;
+}
+
+.menu a {
+    position: relative;
+
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+.menu a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -6px;
+
+    width: 0;
+    height: 2px;
+
+    background: #ff4d00;
+
+    transition: .3s;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+
+/* =====================================================
+   HOME
+===================================================== */
+
+#home {
+    display: flex;
+    align-items: center;
+}
+
+.hero {
+    max-width: 1100px;
+}
+
+.hero-small {
+    color: #ff4d00;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    letter-spacing: 5px;
+    text-transform: uppercase;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(70px, 12vw, 170px);
+
+    line-height: .8;
+
+    letter-spacing: -10px;
+
+    text-transform: uppercase;
+}
+
+.hero h1 span {
+    color: #ff4d00;
+}
+
+.hero-description {
+    max-width: 500px;
+
+    margin-top: 45px;
+
+    color: #777;
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.hero-button {
+    display: inline-block;
+
+    margin-top: 35px;
+
+    padding: 16px 30px;
+
+    background: #ff4d00;
+
+    border-radius: 50px;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    transition: .3s;
+}
+
+.hero-button:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 20px 50px rgba(255,77,0,.25);
+}
+
+
+/* =====================================================
+   DECORATION
+===================================================== */
+
+.circle {
+    position: absolute;
+
+    right: 8%;
+    top: 50%;
+
+    width: 350px;
+    height: 350px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 50%;
+
+    transform: translateY(-50%);
+
+    animation: rotate 15s linear infinite;
+}
+
+.circle::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 30px;
+
+    border: 1px solid rgba(255,77,0,.4);
+
+    border-radius: 50%;
+}
+
+@keyframes rotate {
+
+    from {
+        transform: translateY(-50%) rotate(0deg);
+    }
+
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+
+}
+
+
+/* =====================================================
+   GENERAL PAGE HEADER
+===================================================== */
+
+.page-content {
+    padding-top: 130px;
+}
+
+.page-number {
+    color: #ff4d00;
+
+    font-size: 13px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+}
+
+.page-title {
+    font-size: clamp(60px, 10vw, 140px);
+
+    line-height: .85;
+
+    letter-spacing: -7px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 60px;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    max-width: 1100px;
+}
+
+.about-image {
+    height: 500px;
+
+    overflow: hidden;
+
+    background: #111;
+
+    border-radius: 10px;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter: grayscale(100%);
+
+    transition: .7s;
+}
+
+.about-image:hover img {
+    filter: grayscale(0);
+    transform: scale(1.05);
+}
+
+.about-text {
+    align-self: center;
+}
+
+.about-text h2 {
+    font-size: 35px;
+
+    margin-bottom: 25px;
+}
+
+.about-text p {
+    color: #777;
+
+    line-height: 1.8;
+
+    margin-bottom: 20px;
+}
+
+
+/* =====================================================
+   SKILLS
+===================================================== */
+
+.skills-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    max-width: 1100px;
+}
+
+.skill {
+    padding: 45px 30px;
+
+    border-top: 1px solid #222;
+
+    transition: .4s;
+}
+
+.skill:hover {
+    background: #111;
+    padding-left: 50px;
+}
+
+.skill-number {
+    color: #ff4d00;
+
+    font-size: 12px;
+
+    margin-bottom: 30px;
+}
+
+.skill h2 {
+    font-size: 30px;
+
+    margin-bottom: 10px;
+}
+
+.skill p {
+    color: #666;
+
+    max-width: 450px;
+}
+
+
+/* =====================================================
+   PROJECTS
+===================================================== */
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+
+    max-width: 1200px;
+}
+
+.project {
+    position: relative;
+
+    height: 430px;
+
+    overflow: hidden;
+
+    background: #111;
+
+    cursor: pointer;
+}
+
+.project img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: .8s;
+}
+
+.project:hover img {
+    transform: scale(1.1);
+}
+
+.project-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            transparent 30%,
+            rgba(0,0,0,.9)
+        );
+}
+
+.project-category {
+    color: #ff4d00;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+}
+
+.project-title {
+    font-size: 30px;
+
+    margin-top: 8px;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact-page {
+    display: flex;
+
+    align-items: center;
+}
+
+.contact h2 {
+    font-size: clamp(70px, 12vw, 160px);
+
+    line-height: .8;
+
+    letter-spacing: -8px;
+}
+
+.contact h2 span {
+    color: #ff4d00;
+}
+
+.contact p {
+    color: #777;
+
+    max-width: 500px;
+
+    margin-top: 40px;
+
+    font-size: 18px;
+}
+
+.contact-email {
+    display: inline-block;
+
+    margin-top: 35px;
+
+    font-size: 20px;
+
+    border-bottom: 1px solid #555;
+
+    padding-bottom: 5px;
+}
+
+
+/* =====================================================
+   PAGE ENTER ANIMATION
+===================================================== */
+
+.page.active .page-number {
+    animation: slideUp .8s .2s both;
+}
+
+.page.active .page-title {
+    animation: slideUp 1s .3s both;
+}
+
+.page.active .about-grid,
+.page.active .skills-grid,
+.page.active .projects-grid {
+    animation: slideUp 1s .45s both;
+}
+
+@keyframes slideUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(70px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 800px) {
+
+    .menu {
+        gap: 12px;
+    }
+
+    .menu a {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .circle {
+        display: none;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image {
+        height: 350px;
+    }
+
+    .hero h1 {
+        letter-spacing: -5px;
+    }
+
+}
+
+</style>
 </head>
 
 
 <body>
 
 
-    <!-- =========================
-         NAVIGATION
-    ========================= -->
+<!-- =====================================================
+     PAGE TRANSITION
+===================================================== -->
 
-    <nav>
+<div class="transition" id="transition">
 
-        <a href="#" class="logo">
-            YOUR<span>.</span>NAME
+    <div class="transition-bar"></div>
+    <div class="transition-bar"></div>
+    <div class="transition-bar"></div>
+    <div class="transition-bar"></div>
+
+</div>
+
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav class="nav">
+
+    <div class="logo">
+        YOUR<span>.</span>NAME
+    </div>
+
+    <div class="menu">
+
+        <a onclick="goTo('home')">
+            Home
         </a>
 
-        <ul class="nav-links">
+        <a onclick="goTo('about')">
+            About
+        </a>
 
-            <li>
-                <a href="#about">About</a>
-            </li>
+        <a onclick="goTo('skills')">
+            Skills
+        </a>
 
-            <li>
-                <a href="#skills">Skills</a>
-            </li>
+        <a onclick="goTo('projects')">
+            Projects
+        </a>
 
-            <li>
-                <a href="#projects">Projects</a>
-            </li>
+        <a onclick="goTo('contact')">
+            Contact
+        </a>
 
-            <li>
-                <a href="#contact">Contact</a>
-            </li>
+    </div>
 
-        </ul>
-
-    </nav>
+</nav>
 
 
 
-    <!-- =========================
-         HERO
-    ========================= -->
+<!-- =====================================================
+     HOME
+===================================================== -->
 
-    <header class="hero">
+<section class="page active" id="home">
 
-        <div class="container">
+    <div class="hero">
 
-            <div class="hero-content">
+        <div class="hero-small">
+            Creative Developer / Video Editor
+        </div>
 
-                <div class="small-title">
-                    Creative Developer / Editor
-                </div>
+        <h1>
+            CREATE<br>
+            <span>IMPACT.</span>
+        </h1>
 
-                <h1>
-                    I CREATE<br>
-                    <span>STORIES.</span>
-                </h1>
+        <p class="hero-description">
 
-                <p class="hero-description">
-                    I'm a creative professional focused on video editing,
-                    visual storytelling, photography and digital experiences.
-                    I turn ideas into visuals that people remember.
+            I create cinematic videos, visual experiences
+            and digital projects that turn ideas into stories.
+
+        </p>
+
+        <a
+            class="hero-button"
+            onclick="goTo('projects')"
+        >
+            EXPLORE MY WORK →
+        </a>
+
+    </div>
+
+    <div class="circle"></div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section class="page" id="about">
+
+    <div class="page-content">
+
+        <div class="page-number">
+            01 / ABOUT
+        </div>
+
+        <h1 class="page-title">
+            WHO<br>
+            I AM
+        </h1>
+
+
+        <div class="about-grid">
+
+            <div class="about-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
+                >
+
+            </div>
+
+
+            <div class="about-text">
+
+                <h2>
+                    I build stories through visuals.
+                </h2>
+
+                <p>
+                    I'm a creative professional passionate about
+                    video editing, photography, motion design and
+                    digital experiences.
                 </p>
 
-                <div class="buttons">
+                <p>
+                    My goal is simple — create work that looks
+                    incredible and makes people feel something.
+                </p>
 
-                    <a href="#projects" class="btn btn-primary">
-                        View My Work →
-                    </a>
-
-                    <a href="#contact" class="btn btn-outline">
-                        Let's Talk
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="scroll">
-            ↓ SCROLL TO EXPLORE
-        </div>
-
-    </header>
-
-
-
-    <!-- =========================
-         ABOUT
-    ========================= -->
-
-    <section id="about">
-
-        <div class="container">
-
-            <div class="section-header">
-
-                <div>
-
-                    <div class="section-number">
-                        01 / ABOUT
-                    </div>
-
-                    <h2 class="section-title">
-                        WHO I AM
-                    </h2>
-
-                </div>
-
-                <p class="section-description">
-                    A little bit about the person behind the work.
+                <p>
+                    Based in Nepal. Available for creative
+                    projects and collaborations.
                 </p>
 
             </div>
 
-
-            <div class="about">
-
-                <div class="about-image">
-
-                    <!-- Replace with your image -->
-
-                    <img
-                        src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80"
-                        alt="Creative workspace"
-                    >
-
-                </div>
-
-
-                <div class="about-text">
-
-                    <h3>
-                        Turning ideas into visual experiences.
-                    </h3>
-
-                    <p>
-                        I'm a passionate creative who loves combining
-                        technology, storytelling and design.
-                    </p>
-
-                    <p>
-                        My work focuses on creating engaging videos,
-                        cinematic visuals, websites and digital content
-                        that communicate ideas clearly.
-                    </p>
-
-
-                    <div class="about-details">
-
-                        <div class="detail">
-
-                            <span>BASED IN</span>
-
-                            Nepal
-
-                        </div>
-
-                        <div class="detail">
-
-                            <span>FOCUS</span>
-
-                            Visual Storytelling
-
-                        </div>
-
-                        <div class="detail">
-
-                            <span>EXPERIENCE</span>
-
-                            2+ Years
-
-                        </div>
-
-                        <div class="detail">
-
-                            <span>AVAILABLE</span>
-
-                            Freelance
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
 
-    <!-- =========================
-         SKILLS
-    ========================= -->
+<!-- =====================================================
+     SKILLS
+===================================================== -->
 
-    <section id="skills">
+<section class="page" id="skills">
 
-        <div class="container">
+    <div class="page-content">
 
-            <div class="section-header">
-
-                <div>
-
-                    <div class="section-number">
-                        02 / SKILLS
-                    </div>
-
-                    <h2 class="section-title">
-                        WHAT I DO
-                    </h2>
-
-                </div>
-
-            </div>
-
-
-            <div class="skills">
-
-                <div class="skill">
-
-                    <div class="skill-number">
-                        01
-                    </div>
-
-                    <h3>
-                        Video Editing
-                    </h3>
-
-                    <p>
-                        Cinematic edits, short-form content,
-                        documentaries and promotional videos.
-                    </p>
-
-                </div>
-
-
-                <div class="skill">
-
-                    <div class="skill-number">
-                        02
-                    </div>
-
-                    <h3>
-                        Motion Design
-                    </h3>
-
-                    <p>
-                        Dynamic typography, transitions,
-                        visual effects and motion graphics.
-                    </p>
-
-                </div>
-
-
-                <div class="skill">
-
-                    <div class="skill-number">
-                        03
-                    </div>
-
-                    <h3>
-                        Photography
-                    </h3>
-
-                    <p>
-                        Portraits, automotive photography,
-                        travel and cinematic photography.
-                    </p>
-
-                </div>
-
-
-                <div class="skill">
-
-                    <div class="skill-number">
-                        04
-                    </div>
-
-                    <h3>
-                        Web Design
-                    </h3>
-
-                    <p>
-                        Modern responsive websites focused
-                        on clean design and user experience.
-                    </p>
-
-                </div>
-
-            </div>
-
+        <div class="page-number">
+            02 / SKILLS
         </div>
 
-    </section>
+        <h1 class="page-title">
+            WHAT<br>
+            I DO
+        </h1>
 
 
+        <div class="skills-grid">
 
-    <!-- =========================
-         PROJECTS
-    ========================= -->
 
-    <section id="projects">
+            <div class="skill">
 
-        <div class="container">
-
-            <div class="section-header">
-
-                <div>
-
-                    <div class="section-number">
-                        03 / SELECTED WORK
-                    </div>
-
-                    <h2 class="section-title">
-                        MY WORK
-                    </h2>
-
+                <div class="skill-number">
+                    01
                 </div>
 
-                <p class="section-description">
-                    A selection of projects I've worked on.
+                <h2>
+                    VIDEO EDITING
+                </h2>
+
+                <p>
+                    Cinematic editing, documentaries,
+                    reels, commercials and storytelling.
                 </p>
 
             </div>
 
 
-            <div class="projects">
+            <div class="skill">
+
+                <div class="skill-number">
+                    02
+                </div>
+
+                <h2>
+                    MOTION DESIGN
+                </h2>
+
+                <p>
+                    Motion graphics, typography,
+                    transitions and visual effects.
+                </p>
+
+            </div>
 
 
-                <!-- PROJECT 1 -->
+            <div class="skill">
 
-                <a href="#" class="project">
+                <div class="skill-number">
+                    03
+                </div>
 
-                    <div class="project-image">
+                <h2>
+                    PHOTOGRAPHY
+                </h2>
 
-                        <img
-                            src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80"
-                            alt="Film project"
-                        >
+                <p>
+                    Portraits, automotive, travel
+                    and cinematic photography.
+                </p>
 
-                    </div>
-
-                    <div class="project-info">
-
-                        <div class="project-category">
-                            Video / Documentary
-                        </div>
-
-                        <h3>
-                            The Journey
-                        </h3>
-
-                    </div>
-
-                </a>
+            </div>
 
 
+            <div class="skill">
 
-                <!-- PROJECT 2 -->
+                <div class="skill-number">
+                    04
+                </div>
 
-                <a href="#" class="project">
+                <h2>
+                    WEB DESIGN
+                </h2>
 
-                    <div class="project-image">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80"
-                            alt="Photography project"
-                        >
-
-                    </div>
-
-                    <div class="project-info">
-
-                        <div class="project-category">
-                            Photography
-                        </div>
-
-                        <h3>
-                            Through My Lens
-                        </h3>
-
-                    </div>
-
-                </a>
-
-
-
-                <!-- PROJECT 3 -->
-
-                <a href="#" class="project">
-
-                    <div class="project-image">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1200&q=80"
-                            alt="Creative project"
-                        >
-
-                    </div>
-
-                    <div class="project-info">
-
-                        <div class="project-category">
-                            Creative Campaign
-                        </div>
-
-                        <h3>
-                            After Dark
-                        </h3>
-
-                    </div>
-
-                </a>
-
-
-
-                <!-- PROJECT 4 -->
-
-                <a href="#" class="project">
-
-                    <div class="project-image">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=80"
-                            alt="Creative production"
-                        >
-
-                    </div>
-
-                    <div class="project-info">
-
-                        <div class="project-category">
-                            Production
-                        </div>
-
-                        <h3>
-                            Behind The Scenes
-                        </h3>
-
-                    </div>
-
-                </a>
+                <p>
+                    Responsive websites with modern
+                    interfaces and interactive experiences.
+                </p>
 
             </div>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
 
-    <!-- =========================
-         STATS
-    ========================= -->
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
 
-    <section>
+<section class="page" id="projects">
 
-        <div class="container">
+    <div class="page-content">
 
-            <div class="stats">
+        <div class="page-number">
+            03 / SELECTED WORK
+        </div>
 
-                <div class="stat">
+        <h1 class="page-title">
+            SELECTED<br>
+            WORK
+        </h1>
 
-                    <h2>2+</h2>
 
-                    <p>
-                        YEARS EXPERIENCE
-                    </p>
+        <div class="projects-grid">
 
-                </div>
 
-                <div class="stat">
+            <div class="project">
 
-                    <h2>50+</h2>
+                <img
+                    src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80"
+                >
 
-                    <p>
-                        PROJECTS
-                    </p>
+                <div class="project-overlay">
 
-                </div>
+                    <div class="project-category">
+                        DOCUMENTARY
+                    </div>
 
-                <div class="stat">
-
-                    <h2>20+</h2>
-
-                    <p>
-                        CLIENTS
-                    </p>
-
-                </div>
-
-                <div class="stat">
-
-                    <h2>∞</h2>
-
-                    <p>
-                        IDEAS
-                    </p>
+                    <div class="project-title">
+                        The Journey
+                    </div>
 
                 </div>
 
             </div>
 
-        </div>
 
-    </section>
+            <div class="project">
 
+                <img
+                    src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80"
+                >
 
+                <div class="project-overlay">
 
-    <!-- =========================
-         CONTACT
-    ========================= -->
+                    <div class="project-category">
+                        PHOTOGRAPHY
+                    </div>
 
-    <section id="contact" class="contact">
+                    <div class="project-title">
+                        Through My Lens
+                    </div>
 
-        <div class="container">
+                </div>
 
-            <div class="section-number">
-                04 / CONTACT
             </div>
 
-            <h2>
-                HAVE AN<br>
-                <span>IDEA?</span>
-            </h2>
 
-            <p>
-                Have a project, collaboration or crazy idea?
-                Let's turn it into something worth remembering.
-            </p>
+            <div class="project">
 
-            <a
-                href="mailto:your@email.com"
-                class="email"
-            >
-                your@email.com
-            </a>
+                <img
+                    src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1200&q=80"
+                >
 
-        </div>
+                <div class="project-overlay">
 
-    </section>
+                    <div class="project-category">
+                        CAMPAIGN
+                    </div>
+
+                    <div class="project-title">
+                        After Dark
+                    </div>
+
+                </div>
+
+            </div>
 
 
+            <div class="project">
 
-    <!-- =========================
-         FOOTER
-    ========================= -->
+                <img
+                    src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=80"
+                >
 
-    <footer>
+                <div class="project-overlay">
 
-        <div>
-            © 2026 Your Name. All rights reserved.
-        </div>
+                    <div class="project-category">
+                        PRODUCTION
+                    </div>
 
-        <div class="socials">
+                    <div class="project-title">
+                        Behind The Scenes
+                    </div>
 
-            <a href="#">
-                Instagram
-            </a>
+                </div>
 
-            <a href="#">
-                LinkedIn
-            </a>
+            </div>
 
-            <a href="#">
-                GitHub
-            </a>
 
         </div>
 
-    </footer>
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section class="page contact-page" id="contact">
+
+    <div class="contact">
+
+        <div class="page-number">
+            04 / CONTACT
+        </div>
+
+        <h2>
+            LET'S<br>
+            <span>CREATE.</span>
+        </h2>
+
+        <p>
+            Have a project, collaboration or idea?
+            Let's turn it into something unforgettable.
+        </p>
+
+        <a
+            class="contact-email"
+            href="mailto:your@email.com"
+        >
+            your@email.com
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+let currentPage = "home";
+
+function goTo(pageName) {
+
+    if (pageName === currentPage) {
+        return;
+    }
+
+    const transition =
+        document.getElementById("transition");
+
+    const current =
+        document.getElementById(currentPage);
+
+    const next =
+        document.getElementById(pageName);
+
+
+    /* Start transition */
+
+    transition.classList.add("active");
+
+
+    /* Hide current page */
+
+    setTimeout(() => {
+
+        current.classList.remove("active");
+
+    }, 450);
+
+
+    /* Show new page */
+
+    setTimeout(() => {
+
+        next.classList.add("active");
+
+        currentPage = pageName;
+
+    }, 700);
+
+
+    /* Reset transition */
+
+    setTimeout(() => {
+
+        transition.classList.remove("active");
+
+    }, 1400);
+
+}
+
+</script>
 
 
 </body>
 </html>
+```
